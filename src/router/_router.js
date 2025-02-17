@@ -1,11 +1,9 @@
 const homepageRouter = require("./homeRouter");
-const signInPageRouter = require("./signupRouter");
-const loginRouter = require("./loginRouter");
+const authRouter = require("./authRouter");
 
 const router = (app) => {
   app.use("/", homepageRouter);
-  app.use("/signup", signInPageRouter);
-  app.use("/login", loginRouter);
+  app.use("/auth", authRouter);
 };
 
 module.exports = router;
