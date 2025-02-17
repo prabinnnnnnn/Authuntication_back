@@ -1,0 +1,238 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #0f0f0f;
+  color: #fff;
+  padding: 1rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  padding: clamp(1rem, 5vw, 2rem);
+  border-radius: clamp(8px, 2vw, 12px);
+  background-color: #1a1a1a;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: clamp(20px, 5vw, 24px);
+  margin-bottom: clamp(6px, 2vw, 8px);
+}
+
+.subtitle {
+  color: #888;
+  font-size: clamp(12px, 3vw, 14px);
+  margin-bottom: clamp(16px, 4vw, 24px);
+}
+
+.social-buttons {
+  display: flex;
+  gap: clamp(8px, 2vw, 12px);
+  margin-bottom: clamp(16px, 4vw, 24px);
+  flex-direction: row;
+}
+
+@media (max-width: 360px) {
+  .social-buttons {
+    flex-direction: column;
+  }
+}
+
+.social-button {
+  flex: 1;
+  padding: clamp(8px, 2vw, 10px);
+  border-radius: 6px;
+  border: 1px solid #333;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background-color 0.2s;
+  font-size: clamp(12px, 3vw, 14px);
+}
+
+.social-button svg {
+  width: clamp(14px, 3vw, 16px);
+  height: clamp(14px, 3vw, 16px);
+}
+
+.social-button:hover {
+  background-color: #252525;
+}
+
+.divider {
+  text-align: center;
+  color: #666;
+  font-size: clamp(10px, 2.5vw, 12px);
+  margin-bottom: clamp(16px, 4vw, 24px);
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 30%;
+  height: 1px;
+  background-color: #333;
+}
+
+.divider::before {
+  left: 0;
+}
+
+.divider::after {
+  right: 0;
+}
+
+.form-group {
+  margin-bottom: clamp(12px, 3vw, 16px);
+}
+
+label {
+  display: block;
+  margin-bottom: clamp(6px, 1.5vw, 8px);
+  font-size: clamp(12px, 3vw, 14px);
+}
+
+input {
+  width: 100%;
+  padding: clamp(8px, 2vw, 10px);
+  border-radius: 6px;
+  border: 1px solid #333;
+  background-color: #1a1a1a;
+  color: white;
+  font-size: clamp(12px, 3vw, 14px);
+}
+
+input:focus {
+  outline: none;
+  border-color: #666;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: clamp(10px, 2.5vw, 12px);
+  border-radius: 6px;
+  border: none;
+  background-color: white;
+  color: black;
+  font-size: clamp(12px, 3vw, 14px);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: clamp(8px, 2vw, 16px);
+  font-weight: 600;
+}
+
+button[type="submit"]:hover {
+  background-color: #e0e0e0;
+}
+
+button[type="button"] {
+  width: 100%;
+  padding: clamp(10px, 2.5vw, 12px);
+  border-radius: 6px;
+  background-color: transparent;
+  color: white;
+  font-size: clamp(12px, 3vw, 14px);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: clamp(8px, 2vw, 16px);
+  border: 1px solid #333;
+  font-weight: 600;
+}
+
+button[type="button"]:hover {
+  background-color: #252525;
+}
+
+.error-message {
+  color: red;
+  margin-top: 4px;
+}
+
+.btn {
+  width: 100%;
+  padding: clamp(10px, 2.5vw, 12px);
+  border-radius: 6px;
+  background-color: transparent;
+  color: white;
+  font-size: clamp(12px, 3vw, 14px);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: clamp(8px, 2vw, 16px);
+  border: 1px solid #333;
+  display: inline-block;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn:hover {
+  background-color: #252525;
+}
+
+.create-account {
+  display: flex;
+  justify-content: center;
+  gap: 0px 5px;
+  margin-top: clamp(16px, 4vw, 24px);
+}
+
+.create-account p {
+  color: #888;
+  font-size: clamp(12px, 3vw, 14px);
+}
+
+.create-account a {
+  font-size: clamp(12px, 3vw, 14px);
+  color: white;
+  text-decoration: none;
+}
+
+.create-account a:hover {
+  text-decoration: underline;
+  transition: all ease-in-out 0.5s;
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+  .social-button:active,
+  button[type="submit"]:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Dark mode optimization */
+@media (prefers-color-scheme: dark) {
+  input::placeholder {
+    color: #666;
+  }
+}
+
+/* High contrast mode */
+@media (forced-colors: active) {
+  .social-button,
+  button[type="submit"] {
+    border: 2px solid currentColor;
+  }
+}
