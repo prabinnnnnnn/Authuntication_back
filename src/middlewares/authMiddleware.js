@@ -1,7 +1,7 @@
-const jwt = require("jsonwebtoken");
+import jwt from "jsonwebtoken";
 
 const isAuthenticated = (req, res, next) => {
-  const token = req.cookies.token;
+  const token = req.cookies.sessionId;
   if (!token) {
     return res.redirect("/auth/login");
   }
@@ -15,4 +15,4 @@ const isAuthenticated = (req, res, next) => {
   }
 };
 
-module.exports = isAuthenticated;
+export default isAuthenticated;

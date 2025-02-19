@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const mongoUri =
   process.env.MONGO_URI || "mongodb://localhost:27017/userDatabase";
@@ -11,4 +11,4 @@ const Database = async () => {
   }
 };
 
-module.exports = Database;
+export default Database;

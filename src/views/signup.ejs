@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/signin.css" />
+    <title>signup</title>
   </head>
   <body>
     <div class="container">
@@ -34,7 +35,7 @@
       <div class="divider">OR CONTINUE WITH</div>
 
       <!-- The form action points to /signup/users -->
-      <form action="/signup" method="post">
+      <form action="/auth/signup" method="post">
         <div class="form-group">
           <label for="username">username</label>
           <input
@@ -59,7 +60,7 @@
           <input type="password" id="password" name="password" />
         </div>
 
-        <button type="submit">Create account</button>
+        <button type="submit">Sign up</button>
         <div class="create-account">
           <p>I have account?</p>
           <a href="/auth/login">login</a>

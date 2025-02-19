@@ -1,7 +1,7 @@
-require("dotenv").config();
-const http = require("http");
-const app = require("./app");
-const Database = require("./src/config/mongoDB");
+import "dotenv/config";
+import http from "http";
+import app from "./app.js";
+import Database from "./src/config/mongoDB.js";
 
 const PORT = process.env.PORT || 3000;
 

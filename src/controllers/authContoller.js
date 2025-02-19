@@ -1,7 +1,7 @@
-const User = require("../models/user");
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
-const signupService = require("../service/signinServer");
+import User from "../models/user.js";
+import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
+import signupService from "../services/authService.js";
 
 const signupPage = (req, res) => {
   res.render("signup");
@@ -23,8 +23,8 @@ const signup = async (req, res) => {
       expiresIn: "1h",
     });
 
-    res.cookie("token", token, { httpOnly: true });
-    res.redirect("/login");
+    res.cookie("sessionId", token, { httpOnly: true });
+    res.redirect("/");
   } catch (error) {
     console.error(error);
     res.status(500).send("Error signing up.");
@@ -40,17 +40,17 @@ const login = async (req, res) => {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
     if (!user) {
-      return res.redirect("/login");
+      return res.redirect("/auth/login");
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-      return res.redirect("/login");
+      return res.redirect("/auth/login");
     }
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
-    res.cookie("token", token, { httpOnly: true });
+    res.cookie("sessionId", token, { httpOnly: true });
     res.redirect("/");
   } catch (error) {
     console.error(error);
@@ -59,8 +59,8 @@ const login = async (req, res) => {
 };
 
 const logout = (req, res) => {
-  res.clearCookie("token");
+  res.clearCookie("sessionId");
   res.redirect("/auth/login");
 };
 
-module.exports = { signupPage, signup, loginPage, login, logout };
+export { signupPage, signup, loginPage, login, logout };

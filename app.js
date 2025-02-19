@@ -1,8 +1,8 @@
-require("dotenv").config();
-const express = require("express");
+import router from "./src/router/_router.js";
+import express from "express";
+import cookieParser from "cookie-parser";
+import path from "path";
 const app = express();
-const path = require("path");
-const cookieParser = require("cookie-parser");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -13,7 +13,6 @@ app.set("view engine", "ejs");
 app.set("views", path.resolve("./src/views"));
 
 // Load routers AFTER middleware
-const router = require("./src/router/_router");
 router(app);
 
-module.exports = app;
+export default app;

@@ -1,5 +1,5 @@
-const TodoList = require("../models/TodoList");
-const User = require("../models/user");
+import TodoList from "../models/todolist.js";
+import User from "../models/user.js";
 
 const homepage = async (req, res) => {
   if (!req.userId) {
@@ -26,7 +26,6 @@ const createTodoList = async (req, res) => {
   }
 };
 
-// Delete a todo list item (ensure it belongs to the logged-in user)
 const deleteTodoList = async (req, res) => {
   try {
     const { id } = req.params;
@@ -44,8 +43,4 @@ const deleteTodoList = async (req, res) => {
   }
 };
 
-module.exports = {
-  homepage,
-  createTodoList,
-  deleteTodoList,
-};
+export { homepage, createTodoList, deleteTodoList };

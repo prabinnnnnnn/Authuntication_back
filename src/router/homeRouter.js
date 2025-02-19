@@ -1,16 +1,17 @@
-// routers/home.js
-const express = require("express");
-const router = express.Router();
-const {
+import express from "express";
+import {
+  deleteTodoList,
   homepage,
   createTodoList,
-  deleteTodoList,
-} = require("../controllers/homeController");
+} from "../controllers/todoController.js";
 
-const isAuthenticated = require("../middlewares/authMiddleware");
+// middlewares
+import isAuthenticated from "../middlewares/authMiddleware.js";
+
+const router = express.Router();
 
 router.get("/", isAuthenticated, homepage);
 router.post("/", isAuthenticated, createTodoList);
 router.get("/delete/:id", isAuthenticated, deleteTodoList);
 
-module.exports = router;
+export default router;
