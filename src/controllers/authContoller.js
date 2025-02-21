@@ -1,3 +1,4 @@
+// authController.js
 import User from "../models/user.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
@@ -14,7 +15,7 @@ const signup = async (req, res) => {
     const newUser = await signupService.createAccount(
       username,
       email,
-      password
+      password,
     );
 
     await newUser.save();
@@ -63,4 +64,6 @@ const logout = (req, res) => {
   res.redirect("/auth/login");
 };
 
-export { signupPage, signup, loginPage, login, logout };
+const signUpwithGithub = (req, res) => {};
+
+export { signupPage, signup, loginPage, login, logout, signUpwithGithub };

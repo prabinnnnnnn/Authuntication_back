@@ -6,7 +6,7 @@ import {
 } from "../controllers/todoController.js";
 
 // middlewares
-import isAuthenticated from "../middlewares/authMiddleware.js";
+import { isAuthenticated } from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
 

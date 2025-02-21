@@ -21,10 +21,18 @@ const userSchema = new mongoose.Schema(
       minlength: 8,
       maxlength: 64,
     },
+    githubId: {
+      type: String,
+      unique: true,
+      sparse: true,
+    },
+    avatar: {
+      type: String,
+    },
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 const User = mongoose.model("User", userSchema);

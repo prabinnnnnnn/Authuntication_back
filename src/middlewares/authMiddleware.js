@@ -1,3 +1,5 @@
+// authMiddleware.js
+
 import jwt from "jsonwebtoken";
 
 const isAuthenticated = (req, res, next) => {
@@ -15,4 +17,4 @@ const isAuthenticated = (req, res, next) => {
   }
 };
 
-export default isAuthenticated;
+export { isAuthenticated };

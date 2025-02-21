@@ -1,10 +1,14 @@
+// authRouter.js
+
 import express from "express";
+
 import {
   loginPage,
   login,
   signupPage,
   signup,
   logout,
+  signUpwithGithub,
 } from "../controllers/authContoller.js";
 
 const router = express.Router();

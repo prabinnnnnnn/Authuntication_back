@@ -20,11 +20,6 @@ const productSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    quantity: {
-      type: Number,
-      default: 0,
-      min: 0,
-    },
     image: {
       type: String,
       required: false,
@@ -32,7 +27,7 @@ const productSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
-  }
+  },
 );
 
 const Product = mongoose.model("Product", productSchema);

@@ -5,12 +5,14 @@ import {
   deleteProduct,
   updateProduct,
   getProductById,
+  productPage,
 } from "../controllers/productController.js";
 import productMulter from "../middlewares/multerMiddelware.js";
 
 const router = express.Router();
 
-router.get("/", getAllProducts);
+router.get("/", productPage);
+router.get("/allproducts", getAllProducts);
 router.get("/:id", getProductById);
 router.post("/", productMulter.single("image"), AddProduct);
 router.delete("/:id", deleteProduct);

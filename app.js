@@ -1,3 +1,6 @@
+// app.js
+import dotenv from "dotenv";
+dotenv.config();
 import router from "./src/router/_router.js";
 import express from "express";
 import cookieParser from "cookie-parser";

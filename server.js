@@ -1,4 +1,5 @@
-import "dotenv/config";
+import dotenv from "dotenv";
+dotenv.config();
 import http from "http";
 import app from "./app.js";
 import Database from "./src/config/mongoDB.js";
@@ -12,7 +13,7 @@ const startServer = async () => {
 
     const server = http.createServer(app);
     server.listen(PORT, () =>
-      console.log(`🚀 Server running at http://localhost:${PORT}`)
+      console.log(`🚀 Server running at http://localhost:${PORT}`),
     );
 
     process.on("SIGINT", () => {

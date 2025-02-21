@@ -4,20 +4,12 @@ const getAllProducts = async () => {
   return await Product.find();
 };
 
-const AddProduct = async (
-  title,
-  price,
-  description,
-  category,
-  quantity,
-  image,
-) => {
+const AddProduct = async (title, price, description, category, image) => {
   return await Product.create({
     title,
     price,
     description,
     category,
-    quantity,
     image,
   });
 };

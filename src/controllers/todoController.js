@@ -3,8 +3,9 @@ import User from "../models/user.js";
 
 const homepage = async (req, res) => {
   if (!req.userId) {
-    return res.redirect("/signup");
+    return res.redirect("/auth/login");
   }
+
   try {
     const todoList = await TodoList.find({ user: req.userId });
     const user = await User.findById(req.userId);

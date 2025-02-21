@@ -13,12 +13,11 @@ body {
     min-height: 100vh;
     background-color: #0f0f0f;
     color: #fff;
-    padding: 1rem;
 }
 
 .container {
     width: 100%;
-    max-width: 400px;
+    max-width: 60%;
     padding: clamp(1rem, 5vw, 2rem);
     border-radius: clamp(8px, 2vw, 12px);
     background-color: #1a1a1a;
@@ -63,7 +62,6 @@ h1 {
     gap: 8px;
     transition: background-color 0.2s;
     font-size: clamp(12px, 3vw, 14px);
-    text-decoration: none;
 }
 
 .social-button svg {
@@ -101,8 +99,15 @@ h1 {
     right: 0;
 }
 
+.form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(8px, 2vw, 12px);
+}
+
 .form-group {
     margin-bottom: clamp(12px, 3vw, 16px);
+    width: 100;
 }
 
 label {
@@ -139,6 +144,7 @@ button[type="submit"] {
     transition: background-color 0.2s;
     margin-top: clamp(8px, 2vw, 16px);
     font-weight: 600;
+    align-items: center;
 }
 
 button[type="submit"]:hover {

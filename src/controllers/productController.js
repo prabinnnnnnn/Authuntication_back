@@ -2,14 +2,21 @@ import productServices from "../services/productService.js";
 import path from "path";
 import fs from "fs";
 
+const productPage = (req, res) => {
+  return res.render("product");
+};
+
 const AddProduct = async (req, res) => {
   try {
-    const { title, price, description, category, quantity } = req.body;
+    const { title, price, description, category } = req.body;
+
+    if (!title || !price || !description || !category) {
+      return res.render("product");
+    }
 
     let image = null;
     if (req.file) {
-      const imageName = req.file.filename;
-      image = `uploads/product/${imageName}`;
+      image = `uploads/product/${req.file.filename}`;
     }
 
     const product = await productServices.AddProduct(
@@ -23,13 +30,13 @@ const AddProduct = async (req, res) => {
 
     res.status(201).json({
       success: true,
-      message: "Added item successfull",
+      message: "Added item successfully",
       data: product,
     });
   } catch (error) {
-    res.status(200).json({
+    res.status(500).json({
       success: false,
-      message: error.message,
+      message: error.message || "Internal Server Error",
     });
   }
 };
@@ -150,6 +157,7 @@ const getProductById = async (req, res) => {
 };
 
 export {
+  productPage,
   AddProduct,
   deleteProduct,
   getAllProducts,
