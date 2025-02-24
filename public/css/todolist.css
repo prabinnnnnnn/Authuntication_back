@@ -27,6 +27,27 @@ nav {
   background-color: #0a0a0a81;
 }
 
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 0 5px;
+  /* flex-direction: column; */
+}
+
+.avatar {
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
+  overflow: hidden;
+  border: 1px solid #666;
+}
+
+.avatar img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
 @media (max-width: 600px) {
   body {
     flex-direction: column;

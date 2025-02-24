@@ -9,7 +9,14 @@
   <body>
     <nav>
       <a href="/auth/logout" class="logoutBtn">Logout</a>
-      <div>
+      <div class="profile">
+        <div class="avatar">
+          <img
+            src="<%= avatar %>"
+            alt="avatar"
+            onerror="this.src='/assets/avatar.avif';"
+          />
+        </div>
         <p><%=username%></p>
       </div>
     </nav>

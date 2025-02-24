@@ -7,9 +7,13 @@ const homepage = async (req, res) => {
   }
 
   try {
-    const todoList = await TodoList.find({ user: req.userId });
     const user = await User.findById(req.userId);
-    return res.render("home", { todoList, username: user.username });
+    const todoList = await TodoList.find({ user: req.userId });
+    return res.render("home", {
+      username: user.username,
+      avatar: user.avatar || "/assets/avatar.avif",
+      todoList,
+    });
   } catch (error) {
     console.error(error);
     return res.status(500).send("Error fetching todo list");
